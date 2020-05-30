@@ -1,28 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header v-if="!$route.meta.isShowHeader" />
+    <router-view></router-view>
+    <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// 引入Home组件
+// 引入Header组件
+import Header from './components/Header'
+// 引入Footer组件
+import Footer from './components/Footer'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Header,
+    Footer
+  },
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="stylus">
+#app
+  margin-right: auto
+  margin-left: auto
+  width: 100%
 </style>
