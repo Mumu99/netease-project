@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./", // 路径
     "paths": {
         "@/*": ["src/*"]
     }
