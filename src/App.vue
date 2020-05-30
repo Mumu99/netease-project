@@ -27,4 +27,5 @@ export default {
   margin-right: auto
   margin-left: auto
   width: 100%
+  background-color: #eeeeee
 </style>

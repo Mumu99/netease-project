@@ -20,9 +20,10 @@ import {
   Tab,
   Tabs,
   Icon,
-  Sticky
+  Sticky,
+  CountDown 
 } from 'vant'
-Vue.use(Button).use(Tabbar).use(TabbarItem).use(Tab).use(Tabs).use(Icon).use(Sticky)
+Vue.use(Button).use(Tabbar).use(TabbarItem).use(Tab).use(Tabs).use(Icon).use(Sticky).use(CountDown)
 import './style/reset.css'
 
 Vue.config.productionTip = false
