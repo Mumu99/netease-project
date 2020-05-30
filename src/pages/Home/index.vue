@@ -99,37 +99,40 @@
       <div class="title">
         <span>新人专享礼</span>
       </div>
-      <div class="content">
+      <div
+        class="content"
+        v-if="homeList.indexActivityModule"
+      >
         <div class="left">
-          <span>新人专享礼包</span>
+          <span>{{homeList.indexActivityModule[0].title}}</span>
           <img
-            src="https://yanxuan.nosdn.127.net/352b0ea9b2d058094956efde167ef852.png"
+            :src="homeList.indexActivityModule[0].picUrl"
             alt=""
           >
         </div>
         <div class="right">
           <div class="top">
-            <p class="top-1">福利社</p>
-            <p class="top-2">今日特价</p>
+            <p class="top-1">{{homeList.indexActivityModule[1].title}}</p>
+            <p class="top-2">{{homeList.indexActivityModule[1].subTitle}}</p>
             <img
-              src="https://yanxuan-item.nosdn.127.net/7e4db021bc68c9af8eddecdb1aa96c36.png"
+              :src="homeList.indexActivityModule[1].picUrl"
               alt=""
             >
             <div class="toto">
-              <span>￥15.2</span>
-              <del>￥100</del>
+              <span>{{homeList.indexActivityModule[1].activityPrice}}</span>
+              <del>{{homeList.indexActivityModule[1].originPrice}}</del>
             </div>
           </div>
           <div class="bottom">
-            <p class="p-top">新人拼团</p>
-            <p class="p-bottom">1元起包邮</p>
+            <p class="p-top">{{homeList.indexActivityModule[2].title}}</p>
+            <p class="p-bottom">{{homeList.indexActivityModule[2].subTitle}}</p>
             <img
-              src="https://yanxuan-item.nosdn.127.net/1eecf74b769af3ed4c7817aeb5d6bb2b.png"
+              :src="homeList.indexActivityModule[2].picUrl"
               alt=""
             >
             <div class="toto">
-              <span>￥15.2</span>
-              <del>￥100</del>
+              <p>{{homeList.indexActivityModule[2].activityPrice}}</p>
+              <del>{{homeList.indexActivityModule[2].originPrice}}</del>
             </div>
           </div>
         </div>
@@ -200,7 +203,6 @@ export default {
 .swiper-pagination-bullet
   width: 40px !importent
 .container
-  overflow-x: hidden
   margin-bottom: 50px
   width: 100%
   .swiper-container
@@ -356,10 +358,10 @@ export default {
             opacity: 0.8
             span
               display: inline-block
-              padding: 12px 0 2px 5px
-              font-size: 12px
+              padding: 12px 0 0px 12px
+              font-size: 16px
             del
-              padding-left: 10px
+              padding-left: 17px
               font-size: 10px
         .bottom
           position: relative
@@ -394,11 +396,10 @@ export default {
             background-color: #f4a447
             color: #fff
             opacity: 0.8
-            span
-              display: inline-block
-              padding: 12px 0 2px 5px
-              font-size: 12px
+            p
+              padding: 10px 0 0px 17px
+              font-size: 16px
             del
-              padding-left: 10px
+              padding-left: 16px
               font-size: 10px
 </style>

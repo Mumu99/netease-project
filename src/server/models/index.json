@@ -4205,8 +4205,10 @@
         },
         {
             "tag": "1元起包邮",
-            "subTitle": "",
+            "subTitle": "1元起包邮",
+            "activityPrice": "¥1",
             "title": "新人拼团",
+            "originPrice": "¥99",
             "targetUrl": "https://m.you.163.com/pin/item/list",
             "picUrl": "https://yanxuan-item.nosdn.127.net/1eecf74b769af3ed4c7817aeb5d6bb2b.png"
         }
