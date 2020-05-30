@@ -60,7 +60,7 @@
         window.addEventListener("resize", setRemUnit);
         // pageshow 是重新加载页面触发的事件
         window.addEventListener("pageshow", function(e) {
-          // e.persisted 返回的是true，就是说如果这个页面是从缓存取过来的页面，也需要重新计算一下rem的大小
+          // e.persisted 返 回的是true，就是说如果这个页面是从缓存取过来的页面，也需要重新计算一下rem的大小
           if (e.persisted) {
             setRemUnit();
           }

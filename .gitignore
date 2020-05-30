@@ -3,6 +3,8 @@ node_modules
 /dist
 /src/assets
 .history
+.gitgnore
+package-lock.json
 
 # local env files
 .env.local

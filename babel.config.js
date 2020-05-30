@@ -10,7 +10,7 @@ module.exports = {
         libraryDirectory: 'es',
         style: true
       },
-      'vant'
+      'vant' //vant
     ]
   ]
 }
