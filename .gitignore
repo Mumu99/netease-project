@@ -4,7 +4,7 @@ node_modules
 /src/assets
 .history
 .gitgnore
-/package-lock.json
+package-lock.json
 
 # local env files
 .env.local

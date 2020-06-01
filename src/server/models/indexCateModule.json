@@ -7,10 +7,29 @@
         "imgUrl": "",
         "showIndex": 0,
         "superCategoryId": 0,
-        "bannerUrl": "",
         "name": "居家生活",
         "id": 1005000,
         "type": 0,
+        "bannerUrl": [
+            {
+                "url": "https://yanxuan.nosdn.127.net/e76010c6f7c191f209abb384ba16be96.jpg"
+            },
+            {
+                "url": "https://yanxuan.nosdn.127.net/2e2333fe1dccaab4cf100787799016ab.jpg"
+            },
+            {
+                "url": "https://yanxuan.nosdn.127.net/19113b03d488a549bd36702c5110891b.jpg"
+            },
+            {
+                "url": "https://yanxuan.nosdn.127.net/d77b1d06fe1af655146360223efe5791.jpg"
+            },
+            {
+                "url": "https://yanxuan.nosdn.127.net/79b2dbf762217e6e532f335bda4c85b3.jpg"
+            },
+            {
+                "url": "https://yanxuan.nosdn.127.net/fd4676b0539ea72864e45c869959c8e8.jpg"
+            }
+        ],
         "subCateList": [
             {
                 "categoryType": 0,

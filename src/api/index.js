@@ -4,3 +4,5 @@ import ajax from './ajax'
 export const reqNavList = () => ajax.get('/getNavList')
 // 获取首页全部数据
 export const reqHome = () => ajax.get('/getHome')
+// 获取分类页面的全部数据
+export const reqCateList = () => ajax.get('/getcategoryList')

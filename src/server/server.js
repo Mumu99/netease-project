@@ -26,6 +26,15 @@ app.get('/getHome', (request, response) => {
   })
 })
 
+// 分类的全部数据
+app.get('/getcategoryList', (request, response) => {
+  var data = require('./models/cateLists')
+  response.json({
+    code: 200,
+    data
+  })
+})
+
 // 监听端口号，启动服务
 app.listen(8000, "localhost", (err) => {
   if (err) {

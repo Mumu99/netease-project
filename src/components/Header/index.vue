@@ -35,6 +35,7 @@
                 v-for="(nav,index) in navList"
                 :title="nav.name"
                 :key="index"
+                :to="index === 1  ? '/familylife' : '/'"
               >
               </van-tab>
             </van-tabs>
@@ -44,13 +45,13 @@
             @click="isShowMask = !isShowMask"
           >
             <van-icon
-              v-if="!isShowMask"
+              v-show="!isShowMask"
               name="arrow-down"
               size="20"
               color="#666"
             />
             <van-icon
-              v-else
+              v-show="isShowMask"
               name="arrow-up"
               size="20"
               color="#666"
@@ -69,7 +70,12 @@
           >{{nav.name}}</div>
         </div>
       </div>
+
     </div>
+    <div
+      class="mak"
+      v-show="isShowMask"
+    ></div>
   </van-sticky>
 
 </template>
@@ -93,6 +99,11 @@ export default {
     activeCard (index) {
       this.active = index
       this.isShowMask = !this.isShowMask
+      if (index === 1 && this.$route.path != '/familylife') {
+        this.$router.push('/familylife')
+      } else {
+        this.$router.push('/')
+      }
     }
   },
   mounted () {
@@ -103,9 +114,13 @@ export default {
 
 <style lang='stylus' rel='stylesheet/stylus' scoped>
 .header
+  position: relative
+  z-index: 5
   border-bottom: 1px solid #d9d9d9
   background-color: #fff
   .line
+    position: relative
+    z-index: 3
     display: flex
     flex-flow: row nowrap
     align-items: center
@@ -148,6 +163,8 @@ export default {
       text-align: center
       line-height: 23px
   .tabNav
+    position: relative
+    z-index: 3
     width: 100%
     header
       position: relative
@@ -174,15 +191,18 @@ export default {
         height: 30px
         background-color: #fff
     .mask
-      display: flex
-      flex-wrap: wrap
-      justify-content: space-evenly
-      width: 90%
+      position: absolute
+      z-index: 3
+      overflow: hidden
+      margin: 0 auto
+      width: 100%
+      background-color #fff
       div
         display: flex
         justify-content: center
         align-items: center
-        margin: 0 0 20px 10px
+        float: left
+        margin: 0 0 20px 18px
         width: 70px
         height: 30px
         border: 1px solid #626262
@@ -191,4 +211,12 @@ export default {
         &.active
           border: 1px solid #f00
           color: #f00
+.mak
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 2
+  background: rgba(0, 0, 0, 0.5)
 </style>

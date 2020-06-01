@@ -21,13 +21,23 @@ import {
   Tabs,
   Icon,
   Sticky,
-  CountDown 
+  CountDown,
+  List,
+  Cell,
+  Sidebar,
+  SidebarItem,
+  NavBar,
+  Toast
 } from 'vant'
-Vue.use(Button).use(Tabbar).use(TabbarItem).use(Tab).use(Tabs).use(Icon).use(Sticky).use(CountDown)
+Vue.use(Button).use(Tabbar).use(TabbarItem).use(Tab).use(Tabs).use(Icon).use(Sticky).use(CountDown).use(List).use(Cell).use(Sidebar).use(SidebarItem).use(NavBar).use(Toast)
 import './style/reset.css'
 
 Vue.config.productionTip = false
 
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 new Vue({
   render: h => h(App),
   router,

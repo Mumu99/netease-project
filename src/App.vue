@@ -2,7 +2,7 @@
   <div id="app">
     <Header v-if="!$route.meta.isShowHeader" />
     <router-view></router-view>
-    <Footer />
+    <Footer v-if="$route.meta.isShowFooter" />
   </div>
 </template>
 
@@ -27,5 +27,6 @@ export default {
   margin-right: auto
   margin-left: auto
   width: 100%
+  height 100%
   background-color: #eeeeee
 </style>
