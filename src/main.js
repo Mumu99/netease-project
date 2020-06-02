@@ -27,9 +27,12 @@ import {
   Sidebar,
   SidebarItem,
   NavBar,
-  Toast
+  Toast,
+  Swipe,
+  SwipeItem,
+  Divider
 } from 'vant'
-Vue.use(Button).use(Tabbar).use(TabbarItem).use(Tab).use(Tabs).use(Icon).use(Sticky).use(CountDown).use(List).use(Cell).use(Sidebar).use(SidebarItem).use(NavBar).use(Toast)
+Vue.use(Button).use(Tabbar).use(TabbarItem).use(Tab).use(Tabs).use(Icon).use(Sticky).use(CountDown).use(List).use(Cell).use(Sidebar).use(SidebarItem).use(NavBar).use(Toast).use(Swipe).use(SwipeItem).use(Divider)
 import './style/reset.css'
 
 Vue.config.productionTip = false

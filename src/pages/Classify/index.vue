@@ -16,7 +16,6 @@
           :title="list.name"
           v-for="(list,index) in catelist"
           :key="index"
-          :to="list.id===12?'/classify/cate':'/classify'"
         />
       </van-sidebar>
       <div class="right">
@@ -64,6 +63,9 @@ export default {
     onChange (index) {
       if (index === 1) {
         this.isShowContent = false
+        this.$router.push('/classify/cate')
+      } else {
+        this.isShowContent = true
       }
     },
   },

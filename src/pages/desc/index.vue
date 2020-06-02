@@ -1,40 +1,21 @@
 <template>
   <div class="container">
-    <van-nav-bar title="网易严选">
-      <template #left>
-        <van-icon
-          name="wap-home-o"
-          size="30"
-          color="#000"
-          @click="goHome"
-        />
-      </template>
-      <template #right>
-        <van-icon
-          name="search"
-          size="30"
-          color="#000"
-        />
-        <van-icon
-          name="shopping-cart-o"
-          size="30"
-          color="#000"
-        />
-      </template>
-    </van-nav-bar>
-    <!-- nav -->
-    <div v-if="catelist">
-      <van-tabs
-        line-width='60px'
-        v-if="catelist"
-      >
-        <van-tab
-          v-for="(val,index) in catelist.categoryList"
-          :key="index"
-          :title="val.name"
-        />
-      </van-tabs>
-    </div>
+    <van-sticky>
+      <navHeader />
+      <!-- nav -->
+      <div v-if="catelist">
+        <van-tabs
+          line-width='60px'
+          v-if="catelist"
+        >
+          <van-tab
+            v-for="(val,index) in catelist"
+            :key="index"
+            :title="val.name"
+          />
+        </van-tabs>
+      </div>
+    </van-sticky>
     <!-- 内容区域 -->
     <div class="content">
       <div class="title">
@@ -91,8 +72,8 @@
 </template>
 
 <script>
-// 引入辅助函数
-// import { mapState } from 'vuex'
+// navHeader
+import navHeader from '../../components/navHeader'
 export default {
   name: 'desc1',
   data () {
@@ -103,15 +84,7 @@ export default {
       finished: false
     }
   },
-  computed: {
-    // ...mapState({
-    //   catelist: state => state.classify.catelist[4]
-    // })
-  },
   methods: {
-    goHome () {
-      this.$router.replace('/')
-    },
     onLoad () {
       // 异步更新数据
       // setTimeout 仅做示例，真实场景中一般为 ajax 请求
@@ -119,17 +92,13 @@ export default {
         for (let i = 0; i < 1; i++) {
           this.catelist.forEach(item => this.catelist.push({
             wapBannerUrl: item.wapBannerUrl,
-            frontDesc: item.frontDesc
+            frontDesc: item.frontDesc,
+            name: item.name
           }))
         }
 
         // 加载状态结束
         this.loading = false;
-
-        // 数据全部加载完成
-        if (this.list.length >= 40) {
-          this.finished = true;
-        }
       }, 1000);
     }
   },
@@ -137,6 +106,9 @@ export default {
     "this.catelist" () {
       this.catelist = this.$store.state.classify // 按照规范在这里应该去使用getters来获取数据
     }
+  },
+  components: {
+    navHeader
   },
   mounted () {
     this.$store.dispatch('getCateList')
@@ -148,10 +120,6 @@ export default {
 </script>
 
 <style lang='stylus' rel='stylesheet/stylus' scope>
-.van-nav-bar__title
-  font-size: 20px
-.van-icon-shopping-cart-o
-  margin-left: 15px
 .container
   width: 100%
   .content
