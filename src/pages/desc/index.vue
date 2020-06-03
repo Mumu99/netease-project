@@ -100,6 +100,11 @@ export default {
         // 加载状态结束
         this.loading = false;
       }, 1000);
+    },
+    // 发送异步请求
+    async getcatelist () {
+      await this.$store.dispatch('getCateList')
+        .then(() => { this.catelist = this.$store.state.classify.catelist[4].categoryList })
     }
   },
   watch: {
@@ -111,10 +116,7 @@ export default {
     navHeader
   },
   mounted () {
-    this.$store.dispatch('getCateList')
-    setTimeout(() => {
-      this.catelist = this.$store.state.classify.catelist[4].categoryList
-    }, 1000);
+    this.getcatelist()
   }
 }
 </script>
