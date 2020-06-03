@@ -12,6 +12,7 @@ Vue.use(VueRouter)
 import * as API from './api'
 // 保证的任意的一个组件实例都可以直接访问相关的接口函数
 Vue.prototype.$API = API
+Vue.prototype.$historyKeyword = []
 // 引入vant
 import {
   Button,

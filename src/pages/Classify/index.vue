@@ -2,7 +2,10 @@
   <div class="container">
     <!-- 标题 -->
     <div class="line">
-      <div class="topIpt">
+      <div
+        class="topIpt"
+        @click="$router.push('/search')"
+      >
         <i class="icon"></i>
         <span class="placeholder">搜索商品, 共28214款好物</span>
       </div>

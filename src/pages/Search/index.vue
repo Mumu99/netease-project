@@ -9,16 +9,38 @@
         @search="onSearch"
         @cancel="$router.push('/')"
       />
-      <div class="title">
-        热门搜索
+      <!-- 历史记录 -->
+      <div class="ls">
+        <div
+          class="m-searchSuggestions"
+          v-if="history.length"
+        >
+          <header class="hd">
+            <h3 class="tit">历史记录</h3>
+            <van-icon
+              name="delete"
+              size="20"
+              @click="clearhistorykeyword"
+            />
+          </header>
+          <nav class="list"><a
+              class="item"
+              v-for="(val,index) in history"
+              :key="index"
+            >{{val}}</a></nav>
+        </div>
+        <div class="title">
+          热门搜索
+        </div>
+        <nav>
+          <a
+            v-for="(list,index) in searchinit"
+            :key="index"
+            :class="list.highlight === 1 ? 'show' : ''"
+            @click="goSearch(list.keyword)"
+          >{{list.keyword}}</a>
+        </nav>
       </div>
-      <nav>
-        <a
-          v-for="(list,index) in searchinit"
-          :key="index"
-          @click="goSearch(list.keyword)"
-        >{{list.keyword}}</a>
-      </nav>
     </header>
   </div>
 </template>
@@ -29,7 +51,8 @@ export default {
   data () {
     return {
       value: '',
-      searchinit: []
+      searchinit: [],
+      history: this.$historyKeyword // 用来保存搜索记录
     }
   },
   methods: {
@@ -40,15 +63,30 @@ export default {
           this.searchinit = this.$store.state.searchinit.search.hotKeywordVOList
         })
     },
+    // 添加搜索记录
+    addhistory (keyword) {
+      this.$historyKeyword.push(keyword)
+    },
+    // 输入关键字搜索
     onSearch (val) {
+      const value = val.trim()
+      this.addhistory(value)
       this.$router.push({ path: '/searchlist', query: { name: val } })
     },
-    goSearch(val){
+    // 点击热词搜索
+    goSearch (val) {
+      this.addhistory(val)
       this.$router.push({ path: '/searchlist', query: { name: val } })
+    },
+    // 清空数组的方法
+    clearhistorykeyword () {
+      this.$historyKeyword.splice(0, this.$historyKeyword.length)
+      this.history = []
     }
   },
   mounted () {
     this.getSearchInit()
+    console.log(this.$historyKeyword);
   }
 }
 </script>
@@ -61,18 +99,35 @@ export default {
   header
     padding-bottom: 10px
     width: 100%
-    background-color: #fff
+    .m-searchSuggestions
+      margin-bottom: 15px
+      padding: 10px 10px
+      width: 100%
+      background-color: #fff
+      .hd
+        display: flex
+        justify-content: space-between
+        width: 100%
+        .tit
+          color: #888
+          font-weight: 400
+          font-size: 16px
+        .van-icon
+          margin-right: 5px
     .title
       margin: 0 auto
-      padding: 15px 0
-      width: 95%
+      padding: 15px 10px
+      width: 100%
+      background-color: #fff
       color: #888
       font-size: 16px
     nav
       display: flex
       flex-wrap: wrap
       margin: 0 auto
-      width: 95%
+      padding: 0 10px
+      width: 100%
+      background-color: #fff
       a
         margin: 0 20px 20px 0
         padding: 5px
@@ -80,7 +135,7 @@ export default {
         border-radius: 3px
         color: #000
         font-size: 12px
-        &:nth-child(2n-1)
+        &.show
           border: 1px solid #f00
           color: #f00
 </style>

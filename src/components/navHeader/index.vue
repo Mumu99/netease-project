@@ -13,6 +13,7 @@
         name="search"
         size="30"
         color="#000"
+        @click="$router.push('/search')"
       />
       <van-icon
         name="shopping-cart-o"
