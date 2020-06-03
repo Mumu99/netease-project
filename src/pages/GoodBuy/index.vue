@@ -37,6 +37,7 @@
                   >
                     <img
                       :src="value.picUrl"
+                      v-lazy="value.picUrl"
                       class="u-topPic"
                     >
                     <div class="m-detail">
@@ -72,11 +73,13 @@
               class="desc-img"
               v-if="val.buyNow"
               :src="val.buyNow.itemUrl"
+              v-lazy="val.buyNow.itemUrl"
               alt=""
             >
             <img
               class="desc-img"
               v-else
+              v-lazy="val.picUrl"
               :src="val.picUrl"
               alt=""
             >
@@ -85,6 +88,7 @@
               <div class="userInfo">
                 <img
                   :src="val.avatar"
+                  v-lazy="val.avatar"
                   alt=""
                 >
                 <div class="username">{{val.nickname}}</div>
@@ -121,12 +125,14 @@
               class="desc-img"
               v-if="val.buyNow"
               :src="val.buyNow.itemUrl"
+              v-lazy="val.buyNow.itemUrl"
               alt=""
             >
             <img
               class="desc-img"
               v-else
               :src="val.picUrl"
+              v-lazy="val.picUrl"
               alt=""
             >
             <p>{{val.title}}</p>
@@ -135,6 +141,7 @@
               <div class="userInfo">
                 <img
                   :src="val.avatar"
+                  v-lazy="val.avatar"
                   alt=""
                 >
                 <div class="username">{{val.nickname}}</div>

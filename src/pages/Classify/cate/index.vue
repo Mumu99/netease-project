@@ -14,6 +14,7 @@
               @click="todesc(index)"
             >
               <img
+                v-lazy="val.bannerUrl"
                 :src="val.bannerUrl"
                 alt=""
               >
@@ -22,7 +23,7 @@
           </ul>
         </div>
       </div>
-     
+
     </header>
   </div>
 </template>
