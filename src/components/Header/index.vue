@@ -7,7 +7,10 @@
           href="/"
           class="logo"
         ></a>
-        <div class="topIpt">
+        <div
+          class="topIpt"
+          @click="toSearch"
+        >
           <i class="icon"></i>
           <span class="placeholder">搜索商品, 共28214款好物</span>
         </div>
@@ -70,7 +73,6 @@
           >{{nav.name}}</div>
         </div>
       </div>
-
     </div>
     <div
       class="mak"
@@ -96,6 +98,7 @@ export default {
     })
   },
   methods: {
+    // 下拉的选中
     activeCard (index) {
       this.active = index
       this.isShowMask = !this.isShowMask
@@ -104,6 +107,10 @@ export default {
       } else {
         this.$router.push('/')
       }
+    },
+    // 点击去搜索页面
+    toSearch () {
+      this.$router.push('/search')
     }
   },
   mounted () {
@@ -196,7 +203,7 @@ export default {
       overflow: hidden
       margin: 0 auto
       width: 100%
-      background-color #fff
+      background-color: #fff
       div
         display: flex
         justify-content: center

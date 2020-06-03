@@ -30,9 +30,13 @@ import {
   Toast,
   Swipe,
   SwipeItem,
-  Divider
+  Divider,
+  Search,
+  DropdownMenu,
+  DropdownItem,
+  Overlay
 } from 'vant'
-Vue.use(Button).use(Tabbar).use(TabbarItem).use(Tab).use(Tabs).use(Icon).use(Sticky).use(CountDown).use(List).use(Cell).use(Sidebar).use(SidebarItem).use(NavBar).use(Toast).use(Swipe).use(SwipeItem).use(Divider)
+Vue.use(Button).use(Tabbar).use(TabbarItem).use(Tab).use(Tabs).use(Icon).use(Sticky).use(CountDown).use(List).use(Cell).use(Sidebar).use(SidebarItem).use(NavBar).use(Toast).use(Swipe).use(SwipeItem).use(Divider).use(Search).use(DropdownMenu).use(DropdownItem).use(Overlay)
 import './style/reset.css'
 
 Vue.config.productionTip = false

@@ -7,10 +7,16 @@ import classify from './classify'
 import goodbuy from './goodbuy'
 // 引入值得买瀑布流数据
 import goodbuymore from './goodbuymore'
+// 引入搜索初始页
+import searchinit from './searchinit'
+// 引入searchlist
+import searchlist from './searchlist'
 export default {
   header,
   home,
   classify,
   goodbuy,
-  goodbuymore
+  goodbuymore,
+  searchinit,
+  searchlist
 }

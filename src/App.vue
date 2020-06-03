@@ -28,5 +28,5 @@ export default {
   margin-left: auto
   width: 100%
   height 100%
-  background-color: #eeeeee
+  // background-color: #eeeeee
 </style>

@@ -12,6 +12,10 @@ import Familylife from '@/pages/Familylife'
 import cate from '@/pages/Classify/cate'
 // 引入desc
 import desc from '@/pages/desc'
+// 引入search组件
+import search from '@/pages/Search'
+// 引入searchlist
+import SearchList from '@/pages/SearchList'
 
 export default [
   // 首页路由
@@ -23,6 +27,25 @@ export default [
       isShowFooter: true
     }
   },
+  // 搜索
+  {
+    path: '/search',
+    component: search,
+    meta: {
+      isShowHeader: true, // 是否隐藏Header组件
+      isShowFooter: false
+    }
+  },
+  // 搜索详细列表
+  {
+    path: '/searchlist',
+    component: SearchList,
+    meta: {
+      isShowHeader: true, // 是否隐藏Header组件
+      isShowFooter: false
+    }
+  },
+  // 分类
   {
     path: '/classify',
     component: Classify,
@@ -42,6 +65,7 @@ export default [
       }
     ]
   },
+  // 值得买
   {
     path: '/goodbuy',
     component: GoodBuy,
@@ -50,6 +74,7 @@ export default [
       isShowFooter: true
     }
   },
+  // 居家
   {
     path: '/familylife',
     component: Familylife,
@@ -58,6 +83,7 @@ export default [
       isShowFooter: true
     }
   },
+  // 详情
   {
     path: '/desc',
     component: desc,
