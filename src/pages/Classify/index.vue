@@ -59,17 +59,19 @@ export default {
   data () {
     return {
       activeKey: 0,
-      isShowContent: true
+      isShowContent: true,
     }
   },
   methods: {
     onChange (index) {
-      if (index === 1) {
-        this.isShowContent = false
-        this.$router.push('/classify/cate')
-      } else {
-        this.isShowContent = true
-      }
+      // if (index === 1) {
+      //   this.isShowContent = false
+      //   this.$router.push({ path: '/classify/cate', query: { index } })
+      // } else {
+      //   this.isShowContent = true
+      // }
+      this.isShowContent = false
+      this.$router.replace({ path: '/classify/cate', query: { index } })
     },
   },
   computed: {

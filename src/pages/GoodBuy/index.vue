@@ -101,9 +101,8 @@
                 <span>{{val.buyNow ? val.buyNow.countPrice : 99}}</span>
               </div>
             </div>
-            <van-divider />
-            <footer>
-              <span>网易智造四季全物手动的撒旦</span>
+            <footer v-if="val.buyNow">
+              <span>{{val.buyNow.itemName}}</span>
               <a href="">去购买></a>
             </footer>
           </div>
@@ -154,6 +153,10 @@
                 <span>{{val.buyNow?val.buyNow.countPrice:99}}</span>
               </div>
             </div>
+            <footer v-if="val.buyNow">
+              <span>{{val.buyNow.itemName}}</span>
+              <a href="">去购买></a>
+            </footer>
           </div>
         </van-list>
 
@@ -348,8 +351,10 @@ export default {
             width: 20px
             height: 20px
       footer
-        padding: 5px 5px 10px
+        margin-top: 10px
+        padding: 10px 5px 10px
         width: 100%
+        border-top: 1px solid #ccc
         span
           display: inline-block
           overflow: hidden
@@ -375,6 +380,7 @@ export default {
       .look
         display: flex
         justify-content: space-between
+        padding-bottom: 10px
         width: 100%
         .userInfo
           display: flex
@@ -392,4 +398,19 @@ export default {
           img
             width: 20px
             height: 20px
+      footer
+        margin-top: 10px
+        padding: 10px 5px 10px
+        width: 100%
+        border-top: 1px solid #ccc
+        span
+          display: inline-block
+          overflow: hidden
+          width: 65%
+          text-overflow: ellipsis
+          white-space: nowrap
+          font-size: 12px
+        a
+          color: #f00
+          font-size: 14px
 </style>

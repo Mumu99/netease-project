@@ -7,15 +7,22 @@
           alt=""
         >
         <div class="categorylist">
-          <ul v-if="catelist[0]">
+          <ul v-if="catelist[index]">
             <li
-              v-for="(val,index) in catelist[2].categoryList"
-              :key="index"
-              @click="todesc(index)"
+              v-for="(val,i) in catelist[index].categoryList"
+              :key="i"
+              @click="todesc(i)"
             >
               <img
                 v-lazy="val.bannerUrl"
+                v-if="val.bannerUrl"
                 :src="val.bannerUrl"
+                alt=""
+              >
+              <img
+                v-lazy="val.wapBannerUrl"
+                v-else
+                :src="val.wapBannerUrl"
                 alt=""
               >
               <p>{{val.name}}</p>
@@ -29,24 +36,35 @@
 </template>
 
 <script>
-// 引入辅助函数
-import { mapState } from 'vuex'
 export default {
   name: 'cate',
+  data () {
+    return {
+      index: this.$route.query.index,
+      catelist: []
+    }
+  },
   computed: {
-    ...mapState({
-      catelist: state => state.classify.catelist
-    })
   },
   methods: {
     todesc (index) {
       if (index === 0) {
         this.$router.push('/desc')
       }
+    },
+    // 发送请求
+    async getCatelist () {
+      await this.$store.dispatch('getCateList')
+        .then(() => { this.catelist = this.$store.state.classify.catelist })
     }
   },
   mounted () {
-    this.$store.dispatch('getCateList')
+    this.getCatelist()
+  },
+  watch: {
+    '$route' () {
+      this.index = this.$route.query.index
+    }
   }
 }
 </script>
